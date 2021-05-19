@@ -20,7 +20,9 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView {
+
             Form {
+                ScrollView {
                 DatePicker("Select date1", selection: $date1)
                 
                 DatePicker("Select date2", selection: $date2, in: ...Date())
@@ -36,11 +38,14 @@ struct ContentView: View {
                 DatePicker("Select date7", selection: $date7, in: Date()..., displayedComponents: .hourAndMinute)
                 
                 DatePicker("Select date8", selection: $date8)
-                    .datePickerStyle(WheelDatePickerStyle())
+                    .datePickerStyle(GraphicalDatePickerStyle())
                     .labelsHidden()
                 
+                    DatePicker("Select date8", selection: $date8)
+                        .datePickerStyle(WheelDatePickerStyle())
+                        .labelsHidden()
             }
-            
+            }
             .navigationTitle("DatePicker")
         }
     }
